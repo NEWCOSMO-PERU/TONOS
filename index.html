@@ -3,186 +3,392 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>FULL TONOS PREMIUM</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
-background:#111827;
-color:white;
+background:#0f172a;
+color:#fff;
+}
+
+header{
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+padding:80px 20px;
 text-align:center;
 }
 
-.container{
-max-width:1000px;
-margin:auto;
-padding:40px 20px;
-}
-
-h1{
+header h1{
 font-size:3rem;
-margin-bottom:10px;
+margin-bottom:15px;
 }
 
-.subtitulo{
-font-size:1.1rem;
-opacity:.9;
+header p{
+max-width:700px;
+margin:auto;
+opacity:.95;
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 28px;
+background:white;
+color:#2563eb;
+text-decoration:none;
+border-radius:40px;
+font-weight:700;
+}
+
+section{
+padding:70px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+.section-title{
+text-align:center;
 margin-bottom:40px;
 }
 
-.pago-card{
-background:#1f2937;
-border-radius:20px;
-padding:30px;
-max-width:500px;
-margin:auto;
-box-shadow:0 0 20px rgba(0,0,0,.3);
+.section-title h2{
+font-size:2rem;
 }
 
-.qr{
-width:280px;
-max-width:100%;
-border-radius:15px;
-margin:20px 0;
-background:white;
-padding:10px;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.25);
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+audio{
+width:100%;
+margin-top:15px;
+}
+
+.lock-btn{
+display:block;
+width:100%;
+margin-top:15px;
+padding:12px;
+background:#334155;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+}
+
+.lock-btn:hover{
+background:#475569;
+}
+
+.premium{
+background:#111827;
+border:2px solid #2563eb;
+border-radius:25px;
+padding:40px;
+text-align:center;
 }
 
 .precio{
-font-size:2rem;
+font-size:3rem;
 font-weight:bold;
 color:#22c55e;
 margin:15px 0;
 }
 
-.pasos{
-text-align:left;
-margin-top:20px;
-line-height:1.8;
+.qr{
+width:280px;
+max-width:100%;
+background:white;
+padding:10px;
+border-radius:15px;
+margin:20px auto;
+display:block;
 }
 
-.btn{
+.whatsapp-btn{
 display:inline-block;
-margin-top:25px;
 background:#25D366;
-color:white;
 padding:15px 30px;
+color:white;
 text-decoration:none;
-border-radius:50px;
-font-size:18px;
 font-weight:bold;
-transition:.3s;
+border-radius:40px;
+margin-top:20px;
 }
 
-.btn:hover{
-transform:scale(1.05);
-}
-
-.beneficios{
-margin-top:40px;
+.benefits{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:15px;
+gap:20px;
 }
 
-.item{
-background:#1f2937;
+.benefit{
+background:#1e293b;
 padding:20px;
 border-radius:15px;
+text-align:center;
+}
+
+.faq{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+margin-bottom:15px;
 }
 
 footer{
-margin-top:50px;
-padding:20px;
-opacity:.7;
+background:#020617;
+text-align:center;
+padding:30px;
+margin-top:40px;
 }
-</style>
 
+.whatsapp-float{
+position:fixed;
+right:20px;
+bottom:20px;
+width:65px;
+height:65px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+text-decoration:none;
+color:white;
+box-shadow:0 5px 15px rgba(0,0,0,.4);
+}
+
+</style>
 </head>
+
 <body>
 
-<div class="container">
+<header>
 
 <h1>🎵 FULL TONOS PREMIUM</h1>
 
-<p class="subtitulo">
-Obtén acceso a tonos exclusivos de llamada, espera, alarmas y notificaciones.
+<p>
+Descarga tonos de llamada, tonos de espera, alarmas y notificaciones exclusivas para Android y iPhone.
 </p>
 
-<div class="pago-card">
+<a href="#tonos" class="btn">
+Escuchar Tonos
+</a>
 
-<h2>💎 Acceso Premium</h2>
+</header>
+
+<section id="tonos">
+
+<div class="section-title">
+<h2>🔥 Tonos Destacados</h2>
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>🎶 Tono Premium 01</h3>
+
+<audio controls>
+<source src="audio/tono1.mp3" type="audio/mpeg">
+</audio>
+
+<button class="lock-btn">
+🔒 Disponible para usuarios Premium
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>🎵 Tono Premium 02</h3>
+
+<audio controls>
+<source src="audio/tono2.mp3" type="audio/mpeg">
+</audio>
+
+<button class="lock-btn">
+🔒 Disponible para usuarios Premium
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>📞 Tono Premium 03</h3>
+
+<audio controls>
+<source src="audio/tono3.mp3" type="audio/mpeg">
+</audio>
+
+<button class="lock-btn">
+🔒 Disponible para usuarios Premium
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>🔔 Notificación Premium</h3>
+
+<audio controls>
+<source src="audio/notificacion.mp3" type="audio/mpeg">
+</audio>
+
+<button class="lock-btn">
+🔒 Disponible para usuarios Premium
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="premium">
+
+<h2>💎 ACCESO PREMIUM</h2>
+
+<p>
+Obtén acceso completo a todos los tonos disponibles.
+</p>
 
 <div class="precio">
-S/ 4.00
+S/ 4
 </div>
 
-<img src="qr-yape.png" alt="QR de Pago" class="qr">
+<img src="qr-yape.png" class="qr" alt="QR de Pago">
 
-<div class="pasos">
-
-<p><b>Paso 1:</b> Escanea el QR.</p>
-
-<p><b>Paso 2:</b> Realiza el pago.</p>
-
-<p><b>Paso 3:</b> Toma una captura del comprobante.</p>
-
-<p><b>Paso 4:</b> Envía la captura por WhatsApp.</p>
-
-<p><b>Paso 5:</b> Recibe el acceso a las descargas Premium.</p>
-
-</div>
+<p>
+1️⃣ Escanea el QR<br>
+2️⃣ Realiza el pago<br>
+3️⃣ Envía tu captura por WhatsApp<br>
+4️⃣ Recibe el enlace de descarga
+</p>
 
 <a
-class="btn"
-href="https://wa.me/TU_NUMERO?text=Hola,%20realicé%20el%20pago%20de%20FULL%20TONOS%20PREMIUM%20y%20adjunto%20mi%20captura."
+class="whatsapp-btn"
+href="https://wa.me/51999999999?text=Hola,%20realicé%20el%20pago%20de%20FULL%20TONOS%20PREMIUM%20y%20adjunto%20mi%20captura."
 target="_blank">
 
-📲 Enviar Captura por WhatsApp
+📲 Enviar Captura
 
 </a>
 
 </div>
 
-<div class="beneficios">
+</section>
 
-<div class="item">
-🎶 Descargas Premium
+<section>
+
+<div class="section-title">
+<h2>⭐ Beneficios Premium</h2>
 </div>
 
-<div class="item">
-📱 Compatible con Android
+<div class="benefits">
+
+<div class="benefit">
+🎵 Tonos exclusivos
 </div>
 
-<div class="item">
-🍎 Compatible con iPhone
+<div class="benefit">
+📥 Descargas ilimitadas
 </div>
 
-<div class="item">
-🔔 Nuevos tonos frecuentes
+<div class="benefit">
+📱 Android e iPhone
 </div>
 
-<div class="item">
-⚡ Acceso rápido
+<div class="benefit">
+🚀 Nuevos tonos frecuentes
 </div>
 
-<div class="item">
-💎 Contenido exclusivo
+<div class="benefit">
+🔔 Notificaciones premium
+</div>
+
+<div class="benefit">
+💎 Acceso prioritario
 </div>
 
 </div>
+
+</section>
+
+<section>
+
+<div class="section-title">
+<h2>❓ Preguntas Frecuentes</h2>
+</div>
+
+<div class="faq">
+<strong>¿Cómo recibo los tonos?</strong><br>
+Después de verificar el pago, recibirás un enlace privado de descarga.
+</div>
+
+<div class="faq">
+<strong>¿Cuánto demora la activación?</strong><br>
+Normalmente entre unos minutos y algunas horas, según la disponibilidad.
+</div>
+
+<div class="faq">
+<strong>¿Funciona en Android?</strong><br>
+Sí.
+</div>
+
+<div class="faq">
+<strong>¿Funciona en iPhone?</strong><br>
+Sí.
+</div>
+
+</section>
 
 <footer>
+
 © 2026 FULL TONOS PREMIUM
+
 </footer>
 
-</div>
+<a
+class="whatsapp-float"
+href="https://wa.me/51999999999"
+target="_blank">
+
+💬
+
+</a>
 
 </body>
 </html>
