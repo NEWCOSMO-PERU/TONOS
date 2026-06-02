@@ -1,394 +1,462 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FULL TONOS PREMIUM - Descargas HD</title>
 
-<title>FULL TONOS PREMIUM</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-<style>
+        html {
+            scroll-behavior: smooth;
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+        body {
+            background: #0b0f19;
+            color: #fff;
+            line-height: 1.6;
+        }
 
-html{
-scroll-behavior:smooth;
-}
+        header {
+            background: linear-gradient(135deg, #1e40af, #6d28d9);
+            padding: 110px 20px;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid #1e293b;
+        }
 
-body{
-background:#0f172a;
-color:#fff;
-}
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
 
-header{
-background:linear-gradient(135deg,#2563eb,#7c3aed);
-padding:80px 20px;
-text-align:center;
-}
+        header p {
+            max-width: 750px;
+            margin: auto;
+            opacity: .90;
+            font-size: 1.15rem;
+            color: #e2e8f0;
+        }
 
-header h1{
-font-size:3rem;
-margin-bottom:15px;
-}
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 36px;
+            background: #06b6d4;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: .3s all ease;
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+        }
 
-header p{
-max-width:700px;
-margin:auto;
-opacity:.95;
-}
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #0891b2;
+            box-shadow: 0 6px 25px rgba(6, 182, 212, 0.6);
+        }
 
-.btn{
-display:inline-block;
-margin-top:20px;
-padding:14px 28px;
-background:white;
-color:#2563eb;
-text-decoration:none;
-border-radius:40px;
-font-weight:700;
-}
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
 
-section{
-padding:70px 20px;
-max-width:1200px;
-margin:auto;
-}
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-.section-title{
-text-align:center;
-margin-bottom:40px;
-}
+        .section-title h2 {
+            font-size: 2.3rem;
+            font-weight: 700;
+        }
+        
+        .section-title p {
+            color: #94a3b8;
+            margin-top: 5px;
+        }
 
-.section-title h2{
-font-size:2rem;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
+        /* Tarjeta de Tono Estilo Reproductor */
+        .card {
+            background: #111827;
+            padding: 30px 25px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.5);
+            border: 1px solid #1f2937;
+            transition: .3s ease;
+            position: relative;
+            overflow: hidden;
+        }
 
-.card{
-background:#1e293b;
-padding:20px;
-border-radius:20px;
-box-shadow:0 5px 15px rgba(0,0,0,.25);
-}
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #06b6d4;
+        }
 
-.card h3{
-margin-bottom:10px;
-}
+        .badge-preview {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
 
-audio{
-width:100%;
-margin-top:15px;
-}
+        .card h3 {
+            margin-bottom: 5px;
+            font-size: 1.25rem;
+            color: #f8fafc;
+        }
 
-.lock-btn{
-display:block;
-width:100%;
-margin-top:15px;
-padding:12px;
-background:#334155;
-color:white;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-weight:600;
-}
+        .track-info {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 12px;
+        }
 
-.lock-btn:hover{
-background:#475569;
-}
+        .track-info span i {
+            margin-right: 4px;
+            color: #06b6d4;
+        }
 
-.premium{
-background:#111827;
-border:2px solid #2563eb;
-border-radius:25px;
-padding:40px;
-text-align:center;
-}
+        audio {
+            width: 100%;
+            margin-top: 5px;
+        }
 
-.precio{
-font-size:3rem;
-font-weight:bold;
-color:#22c55e;
-margin:15px 0;
-}
+        .lock-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            background: #1f2937;
+            color: #cbd5e1;
+            text-decoration: none;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: .3s;
+            border: 1px solid #374151;
+        }
 
-.qr{
-width:280px;
-max-width:100%;
-background:white;
-padding:10px;
-border-radius:15px;
-margin:20px auto;
-display:block;
-}
+        .lock-btn:hover {
+            background: #06b6d4;
+            color: #0f172a;
+            border-color: #06b6d4;
+        }
 
-.whatsapp-btn{
-display:inline-block;
-background:#25D366;
-padding:15px 30px;
-color:white;
-text-decoration:none;
-font-weight:bold;
-border-radius:40px;
-margin-top:20px;
-}
+        /* Bloque de Pago Destacado */
+        .premium {
+            background: radial-gradient(circle at top, #1e1b4b, #0f172a);
+            border: 2px solid #6d28d9;
+            border-radius: 32px;
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,.6);
+        }
 
-.benefits{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
+        .premium h2 {
+            font-size: 2.2rem;
+            color: #38bdf8;
+            letter-spacing: -0.5px;
+        }
 
-.benefit{
-background:#1e293b;
-padding:20px;
-border-radius:15px;
-text-align:center;
-}
+        .precio {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #22c55e;
+            margin: 10px 0;
+            line-height: 1;
+        }
 
-.faq{
-background:#1e293b;
-padding:20px;
-border-radius:15px;
-margin-bottom:15px;
-}
+        .precio span {
+            font-size: 1rem;
+            color: #94a3b8;
+            font-weight: 400;
+            display: block;
+            margin-top: 5px;
+        }
 
-footer{
-background:#020617;
-text-align:center;
-padding:30px;
-margin-top:40px;
-}
+        .qr {
+            width: 250px;
+            max-width: 100%;
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            margin: 30px auto;
+            display: block;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
 
-.whatsapp-float{
-position:fixed;
-right:20px;
-bottom:20px;
-width:65px;
-height:65px;
-background:#25D366;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-text-decoration:none;
-color:white;
-box-shadow:0 5px 15px rgba(0,0,0,.4);
-}
+        .steps {
+            text-align: left;
+            max-width: 380px;
+            margin: 25px auto;
+            color: #e2e8f0;
+        }
 
-</style>
+        .steps li {
+            margin-bottom: 12px;
+            list-style: none;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 1rem;
+        }
+
+        .steps li i {
+            color: #22c55e;
+            margin-top: 4px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            padding: 16px 36px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            margin-top: 10px;
+            transition: .3s;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.03);
+            background: #1ea952;
+        }
+
+        /* FAQs */
+        .faq {
+            background: #111827;
+            padding: 25px;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            border-left: 4px solid #06b6d4;
+            border-top: 1px solid #1f2937;
+            border-right: 1px solid #1f2937;
+            border-bottom: 1px solid #1f2937;
+        }
+
+        .faq strong {
+            color: #f8fafc;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .faq p {
+            color: #94a3b8;
+        }
+
+        footer {
+            background: #020617;
+            text-align: center;
+            padding: 35px;
+            margin-top: 60px;
+            color: #475569;
+            font-size: 0.9rem;
+            border-top: 1px solid #0f172a;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            text-decoration: none;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,.5);
+            z-index: 999;
+            transition: .3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @media(max-width:768px){
+            header h1 { font-size: 2.4rem; }
+            .section-title h2 { font-size: 1.8rem; }
+            .premium { padding: 40px 20px; }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-
-<h1>🎵 FULL TONOS PREMIUM</h1>
-
-<p>
-Descarga tonos de llamada, tonos de espera, alarmas y notificaciones exclusivas para Android y iPhone.
-</p>
-
-<a href="#tonos" class="btn">
-Escuchar Tonos
-</a>
-
+    <h1><i class="fa-solid fa-cloud-music"></i> FULL TONOS PREMIUM</h1>
+    <p>Escucha las muestras gratis en línea. Desbloquea el acceso completo para descargar todo el catálogo original en Alta Definición para tu celular.</p>
+    <a href="#tonos" class="btn">Escuchar Muestras</a>
 </header>
 
-<section id="tonos">
+<main>
+    <!-- SECCIÓN DE TONOS (MUESTRAS) -->
+    <section id="tonos">
+        <div class="section-title">
+            <h2>🔥 Catálogo de Muestras</h2>
+            <p>Los audios de abajo son demostraciones cortas de 15 segundos. El pack completo incluye canciones completas y limpias.</p>
+        </div>
 
-<div class="section-title">
-<h2>🔥 Tonos Destacados</h2>
-</div>
+        <div class="grid">
+            <!-- Tono 1 -->
+            <div class="card">
+                <span class="badge-preview"><i class="fa-solid fa-scissors"></i> Demo Corto</span>
+                <h3>Tono Premium 01</h3>
+                <div class="track-info">
+                    <span><i class="fa-solid fa-clock"></i> Completo: 2:15 min</span>
+                    <span><i class="fa-solid fa-music"></i> HD Audio</span>
+                </div>
+                <audio controls controlsList="nodownload">
+                    <source src="audio/tono1.mp3" type="audio/mpeg">
+                </audio>
+                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-circle-arrow-down"></i> Descargar Versión Completa</a>
+            </div>
 
-<div class="grid">
+            <!-- Tono 2 -->
+            <div class="card">
+                <span class="badge-preview"><i class="fa-solid fa-scissors"></i> Demo Corto</span>
+                <h3>Tono Premium 02</h3>
+                <div class="track-info">
+                    <span><i class="fa-solid fa-clock"></i> Completo: 1:58 min</span>
+                    <span><i class="fa-solid fa-music"></i> HD Audio</span>
+                </div>
+                <audio controls controlsList="nodownload">
+                    <source src="audio/tono2.mp3" type="audio/mpeg">
+                </audio>
+                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-circle-arrow-down"></i> Descargar Versión Completa</a>
+            </div>
 
-<div class="card">
+            <!-- Tono 3 -->
+            <div class="card">
+                <span class="badge-preview"><i class="fa-solid fa-scissors"></i> Demo Corto</span>
+                <h3>Tono Premium 03</h3>
+                <div class="track-info">
+                    <span><i class="fa-solid fa-clock"></i> Completo: 2:40 min</span>
+                    <span><i class="fa-solid fa-music"></i> HD Audio</span>
+                </div>
+                <audio controls controlsList="nodownload">
+                    <source src="audio/tono3.mp3" type="audio/mpeg">
+                </audio>
+                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-circle-arrow-down"></i> Descargar Versión Completa</a>
+            </div>
 
-<h3>🎶 Tono Premium 01</h3>
+            <!-- Tono 4 -->
+            <div class="card">
+                <span class="badge-preview"><i class="fa-solid fa-scissors"></i> Demo Corto</span>
+                <h3>Notificación Especial</h3>
+                <div class="track-info">
+                    <span><i class="fa-solid fa-clock"></i> Completo: 0:08 seg</span>
+                    <span><i class="fa-solid fa-music"></i> Ultra HQ</span>
+                </div>
+                <audio controls controlsList="nodownload">
+                    <source src="audio/notificacion.mp3" type="audio/mpeg">
+                </audio>
+                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-circle-arrow-down"></i> Descargar Versión Completa</a>
+            </div>
+        </div>
+    </section>
 
-<audio controls>
-<source src="audio/tono1.mp3" type="audio/mpeg">
-</audio>
+    <!-- SECCIÓN DE ADQUISICIÓN POR QR -->
+    <section id="descarga-vip">
+        <div class="premium">
+            <h2><i class="fa-solid fa-unlock-keyhole"></i> ¡DESBLOQUEA TODO EL PACK!</h2>
+            <p>No compres uno por uno. Con un único pago obtienes un **enlace privado directo (Google Drive/Mega)** para descargar todos los tonos de la web en formato original para Android o iPhone.</p>
+            
+            <div class="precio">
+                S/ 4
+                <span>Acceso ilimitado a todo el catálogo actual</span>
+            </div>
 
-<button class="lock-btn">
-🔒 Disponible para usuarios Premium
-</button>
+            <img src="qr-yape.png" class="qr" alt="Código QR de Pago Yape / Plin">
 
-</div>
+            <ul class="steps">
+                <li><i class="fa-solid fa-square-check"></i> Escanea el código QR y realiza el pago de S/ 4.</li>
+                <li><i class="fa-solid fa-square-check"></i> Toma una captura de pantalla del comprobante nítido.</li>
+                <li><i class="fa-solid fa-square-check"></i> Haz clic en el botón de abajo para enviárnosla por WhatsApp.</li>
+                <li><i class="fa-solid fa-square-check"></i> Al instante recibirás tu enlace de descarga con todos los archivos .mp3 y .m4r.</li>
+            </ul>
 
-<div class="card">
+            <a class="whatsapp-btn" 
+               href="https://wa.me/51999999999?text=Hola!%20Ya%20yape%C3%A9%20los%20S/%204%20de%20los%20Tonos%20Premium.%20Aqu%C3%AD%20est%C3%A1%20mi%20captura,%20por%20favor%20env%C3%ADame%20el%20enlace%20de%20descarga%20completo." 
+               target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> Enviar Captura para Recibir Enlace
+            </a>
+        </div>
+    </section>
 
-<h3>🎵 Tono Premium 02</h3>
+    <!-- PREGUNTAS FRECUENTES -->
+    <section id="soporte">
+        <div class="section-title">
+            <h2>❓ Dudas Frecuentes</h2>
+        </div>
 
-<audio controls>
-<source src="audio/tono2.mp3" type="audio/mpeg">
-</audio>
+        <div class="grid" style="grid-template-columns: 1fr;">
+            <div class="faq">
+                <strong>¿El enlace incluye todos los tonos escuchados arriba?</strong>
+                <p>Sí, absolutamente todos. Y lo mejor de todo es que se descargan completos, sin cortes promocionales, sin publicidad de fondo y en la máxima tasa de bits (320kbps HD).</p>
+            </div>
 
-<button class="lock-btn">
-🔒 Disponible para usuarios Premium
-</button>
+            <div class="faq">
+                <strong>¿Cómo configuro el archivo descargado como mi tono de llamada?</strong>
+                <p>Es muy sencillo. En Android solo debes mover el archivo descargado a la carpeta "Ringtones" desde tus archivos. En iPhone te adjuntamos una guía rápida de 3 pasos usando GarageBand o iTunes en formato .m4r.</p>
+            </div>
+        </div>
+    </section>
+</main>
 
-</div>
-
-<div class="card">
-
-<h3>📞 Tono Premium 03</h3>
-
-<audio controls>
-<source src="audio/tono3.mp3" type="audio/mpeg">
-</audio>
-
-<button class="lock-btn">
-🔒 Disponible para usuarios Premium
-</button>
-
-</div>
-
-<div class="card">
-
-<h3>🔔 Notificación Premium</h3>
-
-<audio controls>
-<source src="audio/notificacion.mp3" type="audio/mpeg">
-</audio>
-
-<button class="lock-btn">
-🔒 Disponible para usuarios Premium
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="premium">
-
-<h2>💎 ACCESO PREMIUM</h2>
-
-<p>
-Obtén acceso completo a todos los tonos disponibles.
-</p>
-
-<div class="precio">
-S/ 4
-</div>
-
-<img src="qr-yape.png" class="qr" alt="QR de Pago">
-
-<p>
-1️⃣ Escanea el QR<br>
-2️⃣ Realiza el pago<br>
-3️⃣ Envía tu captura por WhatsApp<br>
-4️⃣ Recibe el enlace de descarga
-</p>
-
-<a
-class="whatsapp-btn"
-href="https://wa.me/51999999999?text=Hola,%20realicé%20el%20pago%20de%20FULL%20TONOS%20PREMIUM%20y%20adjunto%20mi%20captura."
-target="_blank">
-
-📲 Enviar Captura
-
+<!-- Botón Flotante de Soporte Directo -->
+<a class="whatsapp-float" href="https://wa.me/51999999999?text=Hola,%20tengo%20una%20duda%20antes%20de%20adquirir%20el%20pack%20de%20tonos." target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
 </a>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="section-title">
-<h2>⭐ Beneficios Premium</h2>
-</div>
-
-<div class="benefits">
-
-<div class="benefit">
-🎵 Tonos exclusivos
-</div>
-
-<div class="benefit">
-📥 Descargas ilimitadas
-</div>
-
-<div class="benefit">
-📱 Android e iPhone
-</div>
-
-<div class="benefit">
-🚀 Nuevos tonos frecuentes
-</div>
-
-<div class="benefit">
-🔔 Notificaciones premium
-</div>
-
-<div class="benefit">
-💎 Acceso prioritario
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="section-title">
-<h2>❓ Preguntas Frecuentes</h2>
-</div>
-
-<div class="faq">
-<strong>¿Cómo recibo los tonos?</strong><br>
-Después de verificar el pago, recibirás un enlace privado de descarga.
-</div>
-
-<div class="faq">
-<strong>¿Cuánto demora la activación?</strong><br>
-Normalmente entre unos minutos y algunas horas, según la disponibilidad.
-</div>
-
-<div class="faq">
-<strong>¿Funciona en Android?</strong><br>
-Sí.
-</div>
-
-<div class="faq">
-<strong>¿Funciona en iPhone?</strong><br>
-Sí.
-</div>
-
-</section>
 
 <footer>
-
-© 2026 FULL TONOS PREMIUM
-
+    © 2026 FULL TONOS PREMIUM - Todos los derechos reservados.<br>
+    Las marcas Android y iPhone pertenecen a sus respectivos desarrolladores.
 </footer>
-
-<a
-class="whatsapp-float"
-href="https://wa.me/51999999999"
-target="_blank">
-
-💬
-
-</a>
 
 </body>
 </html>
