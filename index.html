@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FULL TONOS PREMIUM PRO | Suite de Herramientas & Catálogo HD</title>
+    <title>FULL TONOS PREMIUM - Descargas HD</title>
 
+    <!-- Google Fonts, FontAwesome & Animate.css -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
     <style>
         :root {
             --bg-body: #0b0f19;
             --bg-card: #151f32;
             --bg-input: #090d16;
-            --primary: #3b82f6;
-            --primary-hover: #1d4ed8;
+            --primary: #06b6d4;
+            --primary-hover: #0891b2;
             --premium-gradient: linear-gradient(135deg, #a855f7, #ec4899);
             --premium-hover: linear-gradient(135deg, #7e22ce, #be185d);
             --text-main: #f8fafc;
             --text-muted: #64748b;
             --border: #223147;
-            --success: #10b981;
+            --success: #22c55e;
             --danger: #ef4444;
             --radius-lg: 24px;
             --radius-md: 14px;
@@ -43,71 +42,111 @@
         body {
             background: var(--bg-body);
             color: var(--text-main);
-            padding: 0 0 40px 0;
-            min-height: 100vh;
             line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
         }
 
+        /* --- HEADER PREMIUM --- */
         header {
-            background: linear-gradient(135deg, #1e40af, #6d28d9);
-            padding: 110px 20px;
+            background: radial-gradient(circle at center, #1e40af 0%, #0b0f19 100%);
+            padding: 120px 20px;
             text-align: center;
             position: relative;
             border-bottom: 1px solid var(--border);
-            animation: fadeIn 0.8s ease-out;
+            animation: fadeIn 1s ease-out;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, transparent, var(--bg-body));
+            pointer-events: none;
         }
 
         header h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            background: linear-gradient(to right, #ffffff, #f472b6);
+            background: linear-gradient(to right, #3b82f6, #06b6d4, #a855f7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
         }
 
         header p {
             max-width: 750px;
             margin: auto;
             opacity: .90;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: #e2e8f0;
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
         }
 
-        .section-heading {
-            max-width: 1200px;
-            margin: 60px auto 30px auto;
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 12px;
-            display: flex;
+        .btn {
+            display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding-left: 20px;
-            padding-right: 20px;
+            gap: 10px;
+            margin-top: 35px;
+            padding: 16px 40px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+            position: relative;
+            z-index: 1;
         }
 
-        .section-heading.premium-title {
-            border-image: linear-gradient(to right, #a855f7, transparent) 1;
-            color: #f472b6;
+        .btn:hover {
+            transform: translateY(-3px);
+            background: var(--primary-hover);
+            box-shadow: 0 6px 25px rgba(6, 182, 212, 0.6);
+        }
+
+        /* --- SECCIONES --- */
+        section {
+            padding: 90px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .section-title p {
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-size: 1.05rem;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px;
         }
 
+        /* --- REPRODUCTOR / TARJETAS PREMIUM --- */
         .card {
             background: var(--bg-card);
-            padding: 30px 25px;
+            padding: 35px 25px;
             border-radius: var(--radius-lg);
-            box-shadow: 0 15px 35px rgba(0,0,0,.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
             border: 1px solid var(--border);
             transition: var(--transition);
             position: relative;
@@ -119,50 +158,29 @@
 
         .card:hover {
             transform: translateY(-5px);
-            border-color: #06b6d4;
+            border-color: var(--primary);
             box-shadow: 0 20px 40px rgba(6, 182, 212, 0.15);
-        }
-
-        .card.premium-card {
-            border: 1px solid #4c1d95;
-            background: radial-gradient(circle at top left, #1e1b4b, #111026);
-        }
-        
-        .card.premium-card:hover {
-            border-color: #ec4899;
-            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.2);
         }
 
         .badge-preview {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
             background: rgba(239, 68, 68, 0.15);
             color: #f87171;
-            padding: 4px 12px;
+            padding: 5px 14px;
             border-radius: 30px;
             font-size: 0.75rem;
             font-weight: 600;
-            border: 1px solid rgba(239, 68, 68, 0.3);
-        }
-
-        .badge-premium {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--premium-gradient);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .card h3 {
-            margin-bottom: 5px;
-            font-size: 1.3rem;
+            margin-bottom: 8px;
+            font-size: 1.35rem;
             color: #f8fafc;
             font-weight: 600;
         }
@@ -170,678 +188,391 @@
         .track-info {
             font-size: 0.85rem;
             color: var(--text-muted);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             display: flex;
-            gap: 12px;
+            gap: 15px;
+        }
+
+        .track-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .track-info span i {
-            margin-right: 4px;
-            color: #06b6d4;
+            color: var(--primary);
         }
 
         audio {
             width: 100%;
-            margin-top: 5px;
+            margin-top: 10px;
+            outline: none;
         }
 
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 14px 36px;
-            background: #06b6d4;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: var(--transition);
-            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
-            text-align: center;
+        audio::-webkit-media-controls-panel {
+            background-color: var(--bg-input);
         }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            background: #0891b2;
-            box-shadow: 0 6px 25px rgba(6, 182, 212, 0.6);
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display {
+            color: var(--text-main);
         }
 
         .lock-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             width: 100%;
-            margin-top: 20px;
-            padding: 14px;
-            background: #1f2937;
+            margin-top: 25px;
+            padding: 15px;
+            background: var(--bg-input);
             color: #cbd5e1;
             text-decoration: none;
             border-radius: var(--radius-md);
             font-weight: 600;
             font-size: 0.9rem;
             transition: var(--transition);
-            border: 1px solid #374151;
+            border: 1px solid var(--border);
         }
 
         .lock-btn:hover {
-            background: #06b6d4;
-            color: #0f172a;
-            border-color: #06b6d4;
-        }
-
-        /* Zona de carga Drag and Drop */
-        .drop-zone {
-            border: 2px dashed var(--border);
-            padding: 22px;
-            border-radius: var(--radius-md);
-            text-align: center;
-            background: var(--bg-input);
-            cursor: pointer;
-            transition: var(--transition);
-            margin-bottom: 15px;
-        }
-
-        .drop-zone:hover, .drop-zone.dragover {
-            border-color: #ec4899;
-            background: rgba(236, 72, 153, 0.04);
-        }
-
-        .drop-zone i {
-            font-size: 2rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-
-        .drop-zone p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* Inputs y controles de formulario */
-        input, textarea, select {
-            width: 100%;
-            padding: 12px 16px;
-            margin-bottom: 15px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            background: var(--bg-input);
-            color: var(--text-main);
-            font-size: 0.9rem;
-            outline: none;
-            transition: var(--transition);
-        }
-
-        input:focus, textarea:focus, select:focus {
-            border-color: #ec4899;
-            box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15);
-        }
-
-        textarea {
-            resize: none;
-            height: 100px;
-        }
-
-        button {
             background: var(--primary);
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            color: #0f172a;
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
         }
 
-        button.btn-premium {
-            background: var(--premium-gradient);
-            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
-        }
-
-        button.btn-premium:hover {
-            background: var(--premium-hover);
-            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.3);
-        }
-
-        /* Áreas de Resultados y Descargas */
-        .result {
-            margin-top: 15px;
-            padding: 14px;
-            background: var(--bg-input);
-            border-radius: var(--radius-md);
-            font-weight: 500;
-            font-size: 0.85rem;
-            word-break: break-all;
-            border: 1px dashed var(--border);
-            min-height: 52px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        .copy-icon {
-            cursor: pointer;
-            color: var(--text-muted);
-            transition: var(--transition);
-            font-size: 1.1rem;
-        }
-
-        .copy-icon:hover { color: var(--success); }
-
-        .download-btn {
-            display: none;
-            margin-top: 15px;
-            background: var(--success);
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            padding: 14px;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .preview-box {
-            font-size: 0.75rem;
-            color: var(--success);
-            margin-top: -10px;
-            margin-bottom: 10px;
-            display: none;
-        }
-
-        /* Bloque de Pago Destacado */
+        /* --- PANEL DE ADQUISICIÓN VIP --- */
         .premium {
-            background: radial-gradient(circle at top, #1e1b4b, #0f172a);
-            border: 2px solid #6d28d9;
+            background: radial-gradient(circle at top left, #1e1b4b, #090d16);
+            border: 1px solid #4c1d95;
             border-radius: 32px;
-            padding: 60px 40px;
+            padding: 60px 45px;
             text-align: center;
-            max-width: 650px;
-            margin: 50px auto;
-            box-shadow: 0 20px 40px rgba(0,0,0,.6);
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 25px 50px rgba(0,0,0,.6);
+            position: relative;
+        }
+
+        .premium::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(135deg, #6d28d9, transparent, #ec4899);
+            border-radius: 32px;
+            z-index: -1;
+            opacity: 0.5;
         }
 
         .premium h2 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             color: #38bdf8;
             letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-weight: 700;
         }
 
         .precio {
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 800;
-            color: #22c55e;
-            margin: 10px 0;
+            color: var(--success);
+            margin: 15px 0;
             line-height: 1;
+            text-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
         }
 
         .precio span {
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: #94a3b8;
             font-weight: 400;
             display: block;
-            margin-top: 5px;
+            margin-top: 8px;
         }
 
         .qr {
-            width: 210px;
+            width: 240px;
             max-width: 100%;
             background: white;
             padding: 15px;
             border-radius: 20px;
-            margin: 30px auto;
+            margin: 35px auto;
             display: block;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            transition: var(--transition);
+        }
+
+        .qr:hover {
+            transform: scale(1.02);
         }
 
         .steps {
             text-align: left;
-            max-width: 380px;
-            margin: 25px auto;
+            max-width: 420px;
+            margin: 30px auto;
             color: #e2e8f0;
         }
 
         .steps li {
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             list-style: none;
             display: flex;
             align-items: flex-start;
-            gap: 10px;
+            gap: 12px;
             font-size: 1rem;
         }
 
         .steps li i {
-            color: #22c55e;
+            color: var(--success);
             margin-top: 4px;
+            font-size: 1.1rem;
         }
 
         .whatsapp-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            gap: 12px;
             background: #25D366;
-            padding: 16px 36px;
+            padding: 18px 40px;
             color: white;
             text-decoration: none;
             font-weight: 700;
             border-radius: 50px;
-            margin-top: 10px;
-            transition: .3s;
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            margin-top: 15px;
+            transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            font-size: 1.05rem;
         }
 
         .whatsapp-btn:hover {
-            transform: scale(1.03);
+            transform: translateY(-2px) scale(1.02);
             background: #1ea952;
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
         }
 
-        /* FAQs */
+        /* --- SECCIÓN PREGUNTAS FRECUENTES --- */
         .faq {
-            background: #111827;
-            padding: 25px;
-            border-radius: 18px;
-            margin-bottom: 20px;
-            border-left: 4px solid #06b6d4;
-            border-top: 1px solid #1f2937;
-            border-right: 1px solid #1f2937;
-            border-bottom: 1px solid #1f2937;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary);
+            border-top: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .faq:hover {
+            border-left-color: #a855f7;
+            transform: translateX(5px);
         }
 
         .faq strong {
             color: #f8fafc;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .faq p {
             color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
 
+        /* --- FOOTER Y FLOTANTE --- */
         footer {
             background: #020617;
             text-align: center;
-            padding: 35px;
-            margin-top: 60px;
+            padding: 40px 20px;
+            margin-top: 80px;
             color: #475569;
             font-size: 0.9rem;
-            border-top: 1px solid #0f172a;
+            border-top: 1px solid var(--border);
+            line-height: 1.8;
         }
 
         .whatsapp-float {
             position: fixed;
-            right: 25px;
-            bottom: 25px;
-            width: 60px;
-            height: 60px;
+            right: 30px;
+            bottom: 30px;
+            width: 65px;
+            height: 65px;
             background: #25D366;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
+            font-size: 35px;
             text-decoration: none;
             color: white;
-            box-shadow: 0 10px 25px rgba(0,0,0,.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,.5);
             z-index: 999;
-            transition: .3s;
+            transition: var(--transition);
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(10deg);
+            background: #1ea952;
         }
 
+        /* --- ANIMACIONES --- */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* --- RESPONSIVE DESIGN --- */
         @media(max-width:768px){
-            header h1 { font-size: 2.4rem; }
-            .premium { padding: 40px 20px; }
-            .grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 2.6rem; }
+            header p { font-size: 1.05rem; }
+            .section-title h2 { font-size: 2rem; }
+            .premium { padding: 45px 20px; }
+            .premium h2 { font-size: 1.8rem; }
+            .precio { font-size: 3.5rem; }
+            .whatsapp-btn { width: 100%; padding: 16px 20px; }
         }
     </style>
 </head>
+
 <body>
 
 <header>
     <h1><i class="fa-solid fa-cloud-music"></i> FULL TONOS PREMIUM</h1>
-    <p>Escucha las muestras gratis en línea. Desbloquea el acceso completo para descargar todo el catálogo original en Alta Definición para tu celular[cite: 60].</p>
-    <a href="#tonos" class="btn">Escuchar Muestras</a>
+    <p>Escucha las muestras gratis en línea. Desbloquea el acceso completo para descargar todo el catálogo original en Alta Definición para tu celular.</p>
+    <a href="#tonos" class="btn"><i class="fa-solid fa-play"></i> Escuchar Muestras</a>
 </header>
 
 <main>
-
-    <div class="section-heading premium-title">
-        <h2><i class="fa-solid fa-crown"></i> Suite de Utilidades Premium Pro</h2>
-    </div>
-
-    <div class="grid">
-        <div class="card premium-card">
-            <span class="badge-premium">Doc Engine</span>
-            <h3><i class="fa-solid fa-file-invoice"></i> Conversor de Documentos</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Importa archivos de texto plano (.txt, .md, .html, .json) de forma rápida y conviértelos cruzadamente a PDF o código estructurado.</p>
-            
-            <div class="drop-zone" onclick="document.getElementById('docInput').click()" id="docDropZone">
-                <i class="fa-solid fa-cloud-arrow-up"></i>
-                <p id="docDropText">Arrastra un documento o haz clic aquí</p>
-                <input type="file" id="docInput" accept=".txt,.md,.json,.html" style="display:none" onchange="handleDocUpload(this)">
-            </div>
-            <div class="preview-box" id="docPreview"></div>
-
-            <select id="outputDocFormat">
-                <option value="pdf">Exportar como PDF Limpio</option>
-                <option value="txt">Exportar como Texto Plano (.txt)</option>
-                <option value="md">Exportar como Markdown (.md)</option>
-                <option value="json">Exportar como Estructura (.json)</option>
-            </select>
-            
-            <button class="btn-premium" onclick="convertirDocumento()"><i class="fa-solid fa-arrows-rotate"></i> Convertir Documento</button>
-            <a id="downloadDocLink" class="download-btn" href="#">Descargar Documento</a>
+    <!-- SECCIÓN DE TONOS (MUESTRAS) -->
+    <section id="tonos">
+        <div class="section-title">
+            <h2>🔥 Catálogo de Muestras</h2>
+            <p>Los audios de abajo son demostraciones cortas de 15 segundos. El pack completo incluye canciones completas y limpias.</p>
         </div>
 
-        <div class="card premium-card">
-            <span class="badge-premium">AES-GCM Crypt</span>
-            <h3><i class="fa-solid fa-user-lock"></i> Bóveda Criptográfica</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Protege notas confidenciales utilizando derivación de claves PBKDF2 de alta resistencia localmente en tu cliente.</p>
-            
-            <textarea id="secretContent" placeholder="Escribe aquí tu mensaje confidencial..."></textarea>
-            <input type="password" id="secretKey" placeholder="Llave de paso secreta">
-            
-            <button class="btn-premium" onclick="crearNotaCifrada()"><i class="fa-solid fa-user-shield"></i> Cifrar Contenido</button>
-            <div class="result">
-                <span id="secureLinkResult" style="font-size:0.75rem; color:var(--text-muted); max-height:40px; overflow:hidden;">Esperando datos...</span>
-                <i class="fa-regular fa-copy copy-icon" onclick="copyToClipboard('secureLinkResult')"></i>
-            </div>
-        </div>
-
-        <div class="card premium-card">
-            <span class="badge-premium">Image Pro</span>
-            <h3><i class="fa-solid fa-file-image"></i> Conversor de Imagen</h3>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 15px;">Transforma formatos gráficos en tiempo de ejecución conservando la transparencia y compresión óptima.</p>
-            
-            <div class="drop-zone" onclick="document.getElementById('imageInput').click()" id="imgDropZone">
-                <i class="fa-solid fa-images"></i>
-                <p id="imgDropText">Arrastra tu imagen aquí</p>
-                <input type="file" id="imageInput" accept="image/*" style="display:none" onchange="handleImageUpload(this)">
-            </div>
-            <div class="preview-box" id="imgPreview"></div>
-
-            <select id="imageFormat">
-                <option value="png">Convertir a PNG (.png)</option>
-                <option value="jpeg">Convertir a JPG (.jpg)</option>
-                <option value="webp">Convertir a WebP (.webp)</option>
-            </select>
-            
-            <button class="btn-premium" onclick="convertirImagen()"><i class="fa-solid fa-retweet"></i> Cambiar Extensión</button>
-            <a id="downloadImgLink" class="download-btn" href="#">Descargar Imagen</a>
-        </div>
-    </div>
-
-
-    <div class="section-heading">
-        <h2><i class="fa-solid fa-music"></i> Catálogo de Muestras Remasterizado</h2>
-    </div>
-
-    <section id="tonos" style="padding-top: 10px;">
         <div class="grid">
+            <!-- Tono 1 -->
             <div class="card">
-                <span class="badge-preview"><i class="fa-solid fa-scissors"></i> Demo Corto [cite: 61]</span>
-                <h3>Tono Premium 01 [cite: 62]</h3>
+                <span class="badge-preview"><i class="fa-solid fa-scissors"></i> Demo Corto</span>
+                <h3>Tono Premium 01</h3>
                 <div class="track-info">
-                    <span><i class="fa-solid fa-clock"></i> Completo: 2:15 min [cite: 62]</span>
-                    <span><i class="fa-solid fa-music"></i> HD Audio [cite: 62]</span>
-                </div>
-                <audio controls controlsList="nodownload"> [cite: 62]
-                    <source src="audio/tono1.mp3" type="audio/mpeg"> [cite: 63]
-                </audio>
-                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-circle-arrow-down"></i> Descargar Versión Completa [cite: 63]</a>
-            </div>
-
-            <div class="card">
-                <span class="badge-preview"><i class="fa-solid fa-scissors"></i> Demo Corto [cite: 64]</span>
-                <h3>Tono Premium 02 [cite: 64]</h3>
-                <div class="track-info">
-                    <span><i class="fa-solid fa-clock"></i> Completo: 1:58 min [cite: 64]</span>
-                    <span><i class="fa-solid fa-music"></i> HD Audio [cite: 64]</span>
+                    <span><i class="fa-solid fa-clock"></i> Completo: 2:15 min</span>
+                    <span><i class="fa-solid fa-music"></i> HD Audio</span>
                 </div>
                 <audio controls controlsList="nodownload">
-                    <source src="audio/tono2.mp3" type="audio/mpeg"> [cite: 65]
+                    <source src="audio/tono1.mp3" type="audio/mpeg">
                 </audio>
-                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-circle-arrow-down"></i> Descargar Versión Completa [cite: 65]</a>
+                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-circle-arrow-down"></i> Descargar Versión Completa</a>
             </div>
 
+            <!-- Tono 2 -->
             <div class="card">
-                <span class="badge-preview"><i class="fa-solid fa-scissors"></i> Demo Corto [cite: 66]</span>
-                <h3>Tono Premium 03 [cite: 66]</h3>
+                <span class="badge-preview"><i class="fa-solid fa-scissors"></i> Demo Corto</span>
+                <h3>Tono Premium 02</h3>
                 <div class="track-info">
-                    <span><i class="fa-solid fa-clock"></i> Completo: 2:40 min [cite: 67]</span>
-                    <span><i class="fa-solid fa-music"></i> HD Audio [cite: 67]</span>
+                    <span><i class="fa-solid fa-clock"></i> Completo: 1:58 min</span>
+                    <span><i class="fa-solid fa-music"></i> HD Audio</span>
                 </div>
                 <audio controls controlsList="nodownload">
-                    <source src="audio/tono3.mp3" type="audio/mpeg"> [cite: 67]
+                    <source src="audio/tono2.mp3" type="audio/mpeg">
                 </audio>
-                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-circle-arrow-down"></i> Descargar Versión Completa [cite: 68]</a>
+                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-circle-arrow-down"></i> Descargar Versión Completa</a>
             </div>
 
+            <!-- Tono 3 -->
             <div class="card">
-                <span class="badge-preview"><i class="fa-solid fa-scissors"></i> Demo Corto [cite: 68]</span>
-                <h3>Notificación Especial [cite: 69]</h3>
+                <span class="badge-preview"><i class="fa-solid fa-scissors"></i> Demo Corto</span>
+                <h3>Tono Premium 03</h3>
                 <div class="track-info">
-                    <span><i class="fa-solid fa-clock"></i> Completo: 0:08 seg [cite: 69]</span>
-                    <span><i class="fa-solid fa-music"></i> Ultra HQ [cite: 69]</span>
+                    <span><i class="fa-solid fa-clock"></i> Completo: 2:40 min</span>
+                    <span><i class="fa-solid fa-music"></i> HD Audio</span>
                 </div>
-                <audio controls controlsList="nodownload"> [cite: 70]
-                    <source src="audio/notificacion.mp3" type="audio/mpeg"> [cite: 70]
+                <audio controls controlsList="nodownload">
+                    <source src="audio/tono3.mp3" type="audio/mpeg">
                 </audio>
-                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-circle-arrow-down"></i> Descargar Versión Completa [cite: 70]</a>
+                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-circle-arrow-down"></i> Descargar Versión Completa</a>
+            </div>
+
+            <!-- Tono 4 -->
+            <div class="card">
+                <span class="badge-preview"><i class="fa-solid fa-scissors"></i> Demo Corto</span>
+                <h3>Notificación Especial</h3>
+                <div class="track-info">
+                    <span><i class="fa-solid fa-clock"></i> Completo: 0:08 seg</span>
+                    <span><i class="fa-solid fa-music"></i> Ultra HQ</span>
+                </div>
+                <audio controls controlsList="nodownload">
+                    <source src="audio/notificacion.mp3" type="audio/mpeg">
+                </audio>
+                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-circle-arrow-down"></i> Descargar Versión Completa</a>
             </div>
         </div>
     </section>
 
-    <section id="descarga-vip" style="padding-top: 10px;">
+    <!-- SECCIÓN DE ADQUISICIÓN POR QR -->
+    <section id="descarga-vip">
         <div class="premium">
-            <h2><i class="fa-solid fa-unlock-keyhole"></i> ¡DESBLOQUEA TODO EL PACK! [cite: 71]</h2>
-            <p>Con un único pago obtienes un **enlace privado directo (Google Drive/Mega)** para descargar todos los tonos de la web en formato original[cite: 72].</p>
+            <h2><i class="fa-solid fa-unlock-keyhole"></i> ¡DESBLOQUEA TODO EL PACK!</h2>
+            <p>No compres uno por uno. Con un único pago obtienes un **enlace privado directo (Google Drive/Mega)** para descargar todos los tonos de la web en formato original para Android o iPhone.</p>
             
             <div class="precio">
-                S/ 4 [cite: 73]
-                <span>Acceso ilimitado a todo el catálogo actual [cite: 72]</span>
+                S/ 4
+                <span>Acceso ilimitado a todo el catálogo actual</span>
             </div>
 
-            <img src="qr-yape.png" class="qr" alt="Código QR de Pago Yape / Plin"> [cite: 73]
+            <img src="qr-yape.png" class="qr" alt="Código QR de Pago Yape / Plin">
 
             <ul class="steps">
-                <li><i class="fa-solid fa-square-check"></i> Escanea el código QR y realiza el pago de S/ 4. [cite: 73]</li>
-                <li><i class="fa-solid fa-square-check"></i> Toma una captura de pantalla del comprobante nítido. [cite: 73]</li>
-                <li><i class="fa-solid fa-square-check"></i> Haz clic en el botón de abajo para enviárnosla por WhatsApp. [cite: 74]</li>
-                <li><i class="fa-solid fa-square-check"></i> Al instante recibirás tu enlace de descarga con todos los archivos .mp3 y .m4r. [cite: 74]</li>
+                <li><i class="fa-solid fa-circle-check"></i> Escanea el código QR y realiza el pago de S/ 4.</li>
+                <li><i class="fa-solid fa-circle-check"></i> Toma una captura de pantalla del comprobante nítido.</li>
+                <li><i class="fa-solid fa-circle-check"></i> Haz clic en el botón de abajo para enviárnosla por WhatsApp.</li>
+                <li><i class="fa-solid fa-circle-check"></i> Al instante recibirás tu enlace de descarga con todos los archivos .mp3 y .m4r.</li>
             </ul>
 
             <a class="whatsapp-btn" 
-               [cite_start]href="https://wa.me/51999999999?text=Hola!%20Ya%20yape%C3%A9%20los%20S/%204%20de%20los%20Tonos%20Premium.%20Aqu%C3%AD%20est%C3%A1%20mi%20captura,%20por%20favor%20env%C3%ADame%20el%20enlace%20de%20descarga%20completo." [cite: 74]
+               href="https://wa.me/51999999999?text=Hola!%20Ya%20yape%C3%A9%20los%20S/%204%20de%20los%20Tonos%20Premium.%20Aqu%C3%AD%20est%C3%A1%20mi%20captura,%20por%20favor%20env%C3%ADame%20el%20enlace%20de%20descarga%20completo." 
                target="_blank">
-                <i class="fa-brands fa-whatsapp"></i> Enviar Captura para Recibir Enlace [cite: 74]
+                <i class="fa-brands fa-whatsapp"></i> Enviar Captura para Recibir Enlace
             </a>
         </div>
     </section>
 
-    <section id="soporte" style="padding-top: 10px;">
-        <div class="faq">
-            <strong>¿El enlace incluye todos los tonos escuchados arriba? [cite: 76]</strong>
-            <p>Sí, absolutamente todos. Y lo mejor de todo es que se descargan completos, sin cortes promocionales y en la máxima calidad HD (320kbps)[cite: 76, 77].</p>
+    <!-- PREGUNTAS FRECUENTES -->
+    <section id="soporte">
+        <div class="section-title">
+            <h2>❓ Dudas Frecuentes</h2>
         </div>
 
-        <div class="faq">
-            <strong>¿Cómo configuro el archivo descargado como mi tono de llamada? [cite: 77]</strong>
-            <p>En Android solo debes mover el archivo a la carpeta "Ringtones"[cite: 78]. En iPhone te adjuntamos una guía rápida de 3 pasos usando GarageBand o iTunes en formato .m4r[cite: 79].</p>
+        <div class="grid" style="grid-template-columns: 1fr;">
+            <div class="faq">
+                <strong>¿El enlace incluye todos los tonos escuchados arriba?</strong>
+                <p>Sí, absolutamente todos. Y lo mejor de todo es que se descargan completos, sin cortes promocionales, sin publicidad de fondo y en la máxima tasa de bits (320kbps HD).</p>
+            </div>
+
+            <div class="faq">
+                <strong>¿Cómo configuro el archivo descargado como mi tono de llamada?</strong>
+                <p>Es muy sencillo. En Android solo debes mover el archivo descargado a la carpeta "Ringtones" desde tus archivos. En iPhone te adjuntamos una guía rápida de 3 pasos usando GarageBand o iTunes en formato .m4r.</p>
+            </div>
         </div>
     </section>
 </main>
 
-<a class="whatsapp-float" href="https://wa.me/51999999999?text=Hola,%20tengo%20una%20duda%20antes%20de%20adquirir%20el%20pack%20de%20tonos." target="_blank"> [cite: 79, 80]
-    <i class="fa-brands fa-whatsapp"></i> [cite: 80]
+<!-- Botón Flotante de Soporte Directo -->
+<a class="whatsapp-float" href="https://wa.me/51999999999?text=Hola,%20tengo%20una%20duda%20antes%20de%20adquirir%20el%20pack%20de%20tonos." target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
 </a>
 
 <footer>
-    © 2026 FULL TONOS PREMIUM - Todos los derechos reservados.<br> [cite: 80]
-    Las marcas Android y iPhone pertenecen a sus respectivos desarrolladores. [cite: 80]
+    © 2026 FULL TONOS PREMIUM - Todos los derechos reservados.<br>
+    Las marcas Android y iPhone pertenecen a sus respectivos desarrolladores.
 </footer>
 
-<script>
-    let cargadoDocContent = "";
-    let cargadoDocName = "documento";
-
-    // --- MANEJO DE DRAG & DROP PREMIUM ---
-    function setupDragAndDrop(dropZoneId, inputId, previewId, type) {
-        const zone = document.getElementById(dropZoneId);
-        const input = document.getElementById(inputId);
-        
-        zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('dragover'); });
-        zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
-        zone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            zone.classList.remove('dragover');
-            if(e.dataTransfer.files.length > 0) {
-                input.files = e.dataTransfer.files;
-                if(type === 'doc') handleDocUpload(input);
-                if(type === 'img') handleImageUpload(input);
-            }
-        });
-    }
-
-    setupDragAndDrop('docDropZone', 'docInput', 'docPreview', 'doc');
-    setupDragAndDrop('imgDropZone', 'imageInput', 'imgPreview', 'img');
-
-    // --- LEER DOCUMENTO LOCAL ---
-    function handleDocUpload(input) {
-        if (!input.files[0]) return;
-        const file = input.files[0];
-        cargadoDocName = file.name.substring(0, file.name.lastIndexOf('.')) || file.name;
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            cargadoDocContent = e.target.result;
-            const preview = document.getElementById('docPreview');
-            preview.innerText = `✔️ Documento listo: "${file.name}"`;
-            preview.style.display = 'block';
-        };
-        reader.readAsText(file);
-    }
-
-    function handleImageUpload(input) {
-        if (!input.files[0]) return;
-        const preview = document.getElementById('imgPreview');
-        preview.innerText = `✔️ Imagen lista: "${input.files[0].name}"`;
-        preview.style.display = 'block';
-    }
-
-    // --- SUITE DE CONVERSIÓN DE DOCUMENTOS ---
-    function convertirDocumento() {
-        const format = document.getElementById('outputDocFormat').value;
-        const downloadBtn = document.getElementById('downloadDocLink');
-
-        if (!cargadoDocContent) {
-            alert('Por favor, arrastra o sube un archivo primero.');
-            return;
-        }
-
-        let outputBlob;
-        let mimeType = "text/plain";
-
-        if (format === 'pdf') {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            const splitText = doc.splitTextToSize(cargadoDocContent, 180);
-            doc.text(splitText, 15, 20);
-            outputBlob = doc.output('blob');
-            mimeType = "application/pdf";
-        } else {
-            let processedText = cargadoDocContent;
-            if (format === 'json') {
-                mimeType = "application/json";
-                try { JSON.parse(cargadoDocContent); } catch(e) {
-                    processedText = JSON.stringify({ contenido: cargadoDocContent, tool: "Premium Engine" }, null, 4);
-                }
-            } else if (format === 'md') { mimeType = "text/markdown"; }
-            outputBlob = new Blob([processedText], { type: mimeType });
-        }
-
-        downloadBtn.href = URL.createObjectURL(outputBlob);
-        downloadBtn.download = `${cargadoDocName}_convertido.${format}`;
-        downloadBtn.style.display = 'block';
-        downloadBtn.innerHTML = `<i class="fa-solid fa-file-arrow-down"></i> Descargar archivo convertido .${format.toUpperCase()}`;
-    }
-
-    // --- CONVERSOR DE IMÁGENES REALES (CANVAS) ---
-    function convertirImagen() {
-        const input = document.getElementById('imageInput');
-        const format = document.getElementById('imageFormat').value;
-        const downloadBtn = document.getElementById('downloadImgLink');
-
-        if (!input.files || !input.files[0]) return alert('Suba una imagen primero.');
-
-        const reader = new FileReader();
-        reader.onload = function(event) {
-            const img = new Image();
-            img.onload = function() {
-                const canvas = document.createElement('canvas');
-                canvas.width = img.width;
-                canvas.height = img.height;
-                canvas.getContext('2d').drawImage(img, 0, 0);
-                
-                downloadBtn.href = canvas.toDataURL(`image/${format}`, 0.95);
-                downloadBtn.download = `imagen_premium.${format}`;
-                downloadBtn.style.display = 'block';
-            };
-            img.src = event.target.result;
-        };
-        reader.readAsDataURL(input.files[0]);
-    }
-
-    // --- CIFRADO REAL SIMÉTRICO (AES-GCM 256 WEB CRYPTO API) ---
-    async function crearNotaCifrada() {
-        const text = document.getElementById('secretContent').value;
-        const password = document.getElementById('secretKey').value;
-        if(!text || !password) return alert('Por favor rellene el texto y clave.');
-
-        try {
-            const enc = new TextEncoder();
-            const salt = window.crypto.getRandomValues(new Uint8Array(16));
-            const baseKey = await window.crypto.subtle.importKey("raw", enc.encode(password), "PBKDF2", false, ["deriveKey"]);
-            const key = await window.crypto.subtle.deriveKey(
-                { name: "PBKDF2", salt: salt, iterations: 100000, hash: "SHA-256" },
-                baseKey, { name: "AES-GCM", length: 256 }, false, ["encrypt"]
-            );
-            const iv = window.crypto.getRandomValues(new Uint8Array(12));
-            const encrypted = await window.crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, key, enc.encode(text));
-
-            const encryptedArr = new Uint8Array(encrypted);
-            const buff = new Uint8Array(salt.byteLength + iv.byteLength + encryptedArr.byteLength);
-            buff.set(salt, 0); buff.set(iv, salt.byteLength); buff.set(encryptedArr, salt.byteLength + iv.byteLength);
-
-            document.getElementById('secureLinkResult').innerText = `CIPHERED_DATA:${btoa(String.fromCharCode.apply(null, buff))}`;
-        } catch (e) {
-            document.getElementById('secureLinkResult').innerText = "Fallo en el proceso de cifrado.";
-        }
-    }
-
-    function copyToClipboard(elementId) {
-        const text = document.getElementById(elementId).innerText;
-        if(text === 'Esperando datos...') return;
-        navigator.clipboard.writeText(text);
-        alert('Copiado al portapapeles.');
-    }
-</script>
 </body>
 </html>
