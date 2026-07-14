@@ -45,7 +45,6 @@
             overflow-x: hidden;
         }
 
-        /* --- BACKGROUND GLOWS --- */
         body::before {
             content: '';
             position: absolute;
@@ -55,7 +54,6 @@
             pointer-events: none;
         }
 
-        /* --- HEADER --- */
         header {
             padding: 160px 20px 100px 20px;
             text-align: center;
@@ -101,7 +99,6 @@
             filter: brightness(1.1);
         }
 
-        /* --- SECCIONES --- */
         section {
             padding: 80px 20px;
             max-width: 1200px;
@@ -131,7 +128,6 @@
             gap: 30px;
         }
 
-        /* --- TARJETAS --- */
         .card {
             background: var(--bg-card);
             backdrop-filter: blur(12px);
@@ -185,7 +181,6 @@
             margin-right: 4px;
         }
 
-        /* CUSTOM PLAYER UI */
         .custom-player {
             background: var(--bg-input);
             padding: 12px 16px;
@@ -276,7 +271,6 @@
             border-color: #fff;
         }
 
-        /* --- VIP GLOW CONSOLIDADO --- */
         .premium {
             background: radial-gradient(circle at top left, #120e29, #05070f);
             border: 1px solid rgba(168, 85, 247, 0.3);
@@ -371,7 +365,6 @@
             box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
         }
 
-        /* --- FAQS DINÁMICAS (ACORDEÓN) --- */
         .faq-container {
             max-width: 750px;
             margin: 0 auto;
@@ -416,7 +409,6 @@
             line-height: 1.7;
         }
 
-        /* Clases activas para JS */
         .faq.active {
             border-color: rgba(6, 182, 212, 0.3);
         }
@@ -427,12 +419,11 @@
             padding-bottom: 20px;
         }
 
-        /* --- FOOTER Y FLOTANTE --- */
         footer {
             background: #020306;
             text-align: center;
             padding: 40px 20px;
-            margin-top: 8px;
+            margin-top: 80px;
             color: #475569;
             font-size: 0.85rem;
             border-top: 1px solid var(--border);
@@ -487,119 +478,8 @@
             <p>Los audios de abajo son demostraciones cortas de 15 segundos. El pack completo incluye versiones limpias y completas.</p>
         </div>
 
-        <div class="grid">
-            <!-- Tono 1 -->
-            <div class="card">
-                <span class="badge-preview"><i class="fa-solid fa-bolt"></i> Demo Corto</span>
-                <h3>Tono Premium 01</h3>
-                <div class="track-info">
-                    <span><i class="fa-solid fa-clock"></i> 2:15 min</span>
-                    <span><i class="fa-solid fa-wave-square"></i> 320 kbps</span>
-                </div>
-                
-                <audio id="audio1" preload="none">
-                    <source src="audio/tono1.mp3" type="audio/mpeg">
-                </audio>
-                
-                <div class="custom-player">
-                    <button class="play-btn" onclick="togglePlay('audio1', this)"><i class="fa-solid fa-play"></i></button>
-                    <div class="player-timeline">
-                        <div class="progress-bar-container" onclick="seekAudio('audio1', event)">
-                            <div class="progress-bar" id="progress1"></div>
-                        </div>
-                        <div class="time-meta">
-                            <span id="time1">0:00</span>
-                            <span>0:15</span>
-                        </div>
-                    </div>
-                </div>
-                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-unlock"></i> Desbloquear Tono</a>
-            </div>
-
-            <!-- Tono 2 -->
-            <div class="card">
-                <span class="badge-preview"><i class="fa-solid fa-bolt"></i> Demo Corto</span>
-                <h3>Tono Premium 02</h3>
-                <div class="track-info">
-                    <span><i class="fa-solid fa-clock"></i> 1:58 min</span>
-                    <span><i class="fa-solid fa-wave-square"></i> 320 kbps</span>
-                </div>
-                
-                <audio id="audio2" preload="none">
-                    <source src="audio/tono2.mp3" type="audio/mpeg">
-                </audio>
-                
-                <div class="custom-player">
-                    <button class="play-btn" onclick="togglePlay('audio2', this)"><i class="fa-solid fa-play"></i></button>
-                    <div class="player-timeline">
-                        <div class="progress-bar-container" onclick="seekAudio('audio2', event)">
-                            <div class="progress-bar" id="progress2"></div>
-                        </div>
-                        <div class="time-meta">
-                            <span id="time2">0:00</span>
-                            <span>0:15</span>
-                        </div>
-                    </div>
-                </div>
-                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-unlock"></i> Desbloquear Tono</a>
-            </div>
-
-            <!-- Tono 3 -->
-            <div class="card">
-                <span class="badge-preview"><i class="fa-solid fa-bolt"></i> Demo Corto</span>
-                <h3>Tono Premium 03</h3>
-                <div class="track-info">
-                    <span><i class="fa-solid fa-clock"></i> 2:40 min</span>
-                    <span><i class="fa-solid fa-wave-square"></i> 320 kbps</span>
-                </div>
-                
-                <audio id="audio3" preload="none">
-                    <source src="audio/tono3.mp3" type="audio/mpeg">
-                </audio>
-                
-                <div class="custom-player">
-                    <button class="play-btn" onclick="togglePlay('audio3', this)"><i class="fa-solid fa-play"></i></button>
-                    <div class="player-timeline">
-                        <div class="progress-bar-container" onclick="seekAudio('audio3', event)">
-                            <div class="progress-bar" id="progress3"></div>
-                        </div>
-                        <div class="time-meta">
-                            <span id="time3">0:00</span>
-                            <span>0:15</span>
-                        </div>
-                    </div>
-                </div>
-                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-unlock"></i> Desbloquear Tono</a>
-            </div>
-
-            <!-- Tono 4 -->
-            <div class="card">
-                <span class="badge-preview"><i class="fa-solid fa-bolt"></i> Demo Corto</span>
-                <h3>Notificación Especial</h3>
-                <div class="track-info">
-                    <span><i class="fa-solid fa-clock"></i> 0:08 seg</span>
-                    <span><i class="fa-solid fa-wave-square"></i> Ultra HQ</span>
-                </div>
-                
-                <audio id="audio4" preload="none">
-                    <source src="audio/notificacion.mp3" type="audio/mpeg">
-                </audio>
-                
-                <div class="custom-player">
-                    <button class="play-btn" onclick="togglePlay('audio4', this)"><i class="fa-solid fa-play"></i></button>
-                    <div class="player-timeline">
-                        <div class="progress-bar-container" onclick="seekAudio('audio4', event)">
-                            <div class="progress-bar" id="progress4"></div>
-                        </div>
-                        <div class="time-meta">
-                            <span id="time4">0:00</span>
-                            <span>0:08</span>
-                        </div>
-                    </div>
-                </div>
-                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-unlock"></i> Desbloquear Tono</a>
-            </div>
-        </div>
+        <!-- Contenedor dinámico donde se inyectarán las 15 tarjetas -->
+        <div class="grid" id="tonos-grid"></div>
     </section>
 
     <section id="descarga-vip">
@@ -668,6 +548,59 @@
 </footer>
 
 <script>
+    // --- RENDERIZADO PRO DE LAS 15 TARJETAS DE TONOS ---
+    const ringtonesData = [
+        { id: 1, title: 'Tono Premium 01', file: 'tono1.mp3', duration: '2:15 min', quality: '320 kbps' },
+        { id: 2, title: 'Tono Premium 02', file: 'tono2.mp3', duration: '1:58 min', quality: '320 kbps' },
+        { id: 3, title: 'Tono Premium 03', file: 'tono3.mp3', duration: '2:40 min', quality: '320 kbps' },
+        { id: 4, title: 'Notificación Especial', file: 'notificacion.mp3', duration: '0:08 seg', quality: 'Ultra HQ' },
+        { id: 5, title: 'Tono Premium 04', file: 'tono4.mp3', duration: '2:05 min', quality: '320 kbps' },
+        { id: 6, title: 'Tono Premium 05', file: 'tono5.mp3', duration: '1:45 min', quality: '320 kbps' },
+        { id: 7, title: 'Alarma Energética', file: 'alarma1.mp3', duration: '0:30 seg', quality: 'Ultra HQ' },
+        { id: 8, title: 'Tono Premium 06', file: 'tono6.mp3', duration: '2:22 min', quality: '320 kbps' },
+        { id: 9, title: 'Tono Premium 07', file: 'tono7.mp3', duration: '3:01 min', quality: '320 kbps' },
+        { id: 10, title: 'Notificación Synth', file: 'notificacion2.mp3', duration: '0:05 seg', quality: 'Ultra HQ' },
+        { id: 11, title: 'Tono Premium 08', file: 'tono8.mp3', duration: '1:50 min', quality: '320 kbps' },
+        { id: 12, title: 'Tono Premium 09', file: 'tono9.mp3', duration: '2:10 min', quality: '320 kbps' },
+        { id: 13, title: 'Tono Premium 10', file: 'tono10.mp3', duration: '2:35 min', quality: '320 kbps' },
+        { id: 14, title: 'Alarma Chill Out', file: 'alarma2.mp3', duration: '0:45 seg', quality: '320 kbps' },
+        { id: 15, title: 'Tono Premium 11', file: 'tono11.mp3', duration: '1:55 min', quality: '320 kbps' }
+    ];
+
+    const gridContainer = document.getElementById('tonos-grid');
+
+    ringtonesData.forEach(track => {
+        const cardHTML = `
+            <div class="card">
+                <span class="badge-preview"><i class="fa-solid fa-bolt"></i> Demo Corto</span>
+                <h3>${track.title}</h3>
+                <div class="track-info">
+                    <span><i class="fa-solid fa-clock"></i> ${track.duration}</span>
+                    <span><i class="fa-solid fa-wave-square"></i> ${track.quality}</span>
+                </div>
+                
+                <audio id="audio${track.id}" preload="none">
+                    <source src="audio/${track.file}" type="audio/mpeg">
+                </audio>
+                
+                <div class="custom-player">
+                    <button class="play-btn" onclick="togglePlay('audio${track.id}', this)"><i class="fa-solid fa-play"></i></button>
+                    <div class="player-timeline">
+                        <div class="progress-bar-container" onclick="seekAudio('audio${track.id}', event)">
+                            <div class="progress-bar" id="progress${track.id}"></div>
+                        </div>
+                        <div class="time-meta">
+                            <span id="time${track.id}">0:00</span>
+                            <span>${track.id === 4 || track.id === 10 ? track.duration.split(' ')[0] : '0:15'}</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-unlock"></i> Desbloquear Tono</a>
+            </div>
+        `;
+        gridContainer.insertAdjacentHTML('beforeend', cardHTML);
+    });
+
     // --- CONTROLADOR DE AUDIO ---
     let currentAudio = null;
     let currentButton = null;
@@ -739,7 +672,6 @@
             faqElement.classList.remove('active');
             content.style.maxHeight = null;
         } else {
-            // Cerrar otros si están abiertos
             document.querySelectorAll('.faq').forEach(el => {
                 el.classList.remove('active');
                 el.querySelector('.faq-content').style.maxHeight = null;
