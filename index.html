@@ -11,20 +11,20 @@
     
     <style>
         :root {
-            --bg-body: #070a13;
-            --bg-card: #0f1626;
-            --bg-input: #050810;
+            --bg-body: #05070f;
+            --bg-card: rgba(15, 22, 38, 0.7);
+            --bg-input: #020408;
             --primary: #06b6d4;
             --primary-hover: #0891b2;
             --accent: #a855f7;
             --premium-gradient: linear-gradient(135deg, #06b6d4, #a855f7);
             --text-main: #f8fafc;
             --text-muted: #64748b;
-            --border: #1e293b;
+            --border: rgba(30, 41, 59, 0.7);
             --success: #22c55e;
-            --radius-lg: 24px;
-            --radius-md: 16px;
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -45,20 +45,27 @@
             overflow-x: hidden;
         }
 
-        /* --- HEADER ULTRA PREMIUM --- */
+        /* --- BACKGROUND GLOWS --- */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 25%; width: 50%; height: 600px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- HEADER --- */
         header {
-            background: radial-gradient(circle at top, rgba(30, 64, 175, 0.4) 0%, var(--bg-body) 70%);
-            padding: 140px 20px 100px 20px;
+            padding: 160px 20px 100px 20px;
             text-align: center;
             position: relative;
-            border-bottom: 1px solid rgba(30, 41, 59, 0.5);
-            animation: fadeIn 1s ease-out;
         }
 
         header h1 {
             font-size: 4rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #fff 30%, #06b6d4, #a855f7);
+            background: linear-gradient(135deg, #fff 40%, #06b6d4, #a855f7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
@@ -66,10 +73,10 @@
         }
 
         header p {
-            max-width: 700px;
+            max-width: 650px;
             margin: auto;
             color: #cbd5e1;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             line-height: 1.8;
         }
 
@@ -78,36 +85,36 @@
             align-items: center;
             gap: 12px;
             margin-top: 40px;
-            padding: 18px 45px;
+            padding: 16px 40px;
             background: var(--premium-gradient);
             color: white;
             text-decoration: none;
             border-radius: 50px;
-            font-weight: 700;
+            font-weight: 600;
             transition: var(--transition);
-            box-shadow: 0 4px 25px rgba(6, 182, 212, 0.3);
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 35px rgba(168, 85, 247, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(168, 85, 247, 0.4);
             filter: brightness(1.1);
         }
 
         /* --- SECCIONES --- */
         section {
-            padding: 100px 20px;
+            padding: 80px 20px;
             max-width: 1200px;
             margin: auto;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .section-title h2 {
-            font-size: 2.6rem;
+            font-size: 2.4rem;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
@@ -115,19 +122,21 @@
         .section-title p {
             color: var(--text-muted);
             margin-top: 10px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        /* --- TARJETAS REPRODUCTORAS CUSTOMIZADAS --- */
+        /* --- TARJETAS --- */
         .card {
             background: var(--bg-card);
-            padding: 35px 30px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 30px;
             border-radius: var(--radius-lg);
             border: 1px solid var(--border);
             transition: var(--transition);
@@ -135,77 +144,67 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(6, 182, 212, 0.5);
-            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.1);
+            transform: translateY(-5px);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.08);
         }
 
         .badge-preview {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 25px;
+            right: 25px;
             background: rgba(6, 182, 212, 0.1);
             color: var(--primary);
-            padding: 6px 14px;
+            padding: 4px 12px;
             border-radius: 30px;
             font-size: 0.75rem;
             font-weight: 600;
             border: 1px solid rgba(6, 182, 212, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
 
         .card h3 {
-            margin-top: 15px;
-            margin-bottom: 8px;
-            font-size: 1.4rem;
-            color: #f8fafc;
+            margin-top: 10px;
+            margin-bottom: 6px;
+            font-size: 1.3rem;
             font-weight: 600;
         }
 
         .track-info {
             font-size: 0.85rem;
             color: var(--text-muted);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             display: flex;
             gap: 15px;
-        }
-
-        .track-info span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
 
         .track-info span i {
             color: var(--accent);
+            margin-right: 4px;
         }
 
-        /* CONTROLADOR DE AUDIO REDISEÑADO (CUSTOM AUDIO UI) */
+        /* CUSTOM PLAYER UI */
         .custom-player {
             background: var(--bg-input);
-            padding: 15px 20px;
+            padding: 12px 16px;
             border-radius: var(--radius-md);
             display: flex;
             align-items: center;
-            gap: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            gap: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
             margin-bottom: 10px;
         }
 
         .play-btn {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: var(--primary);
             border: none;
-            color: #050810;
-            font-size: 1.1rem;
+            color: #020408;
+            font-size: 1rem;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -223,12 +222,12 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 4px;
         }
 
         .progress-bar-container {
             width: 100%;
-            height: 5px;
+            height: 6px;
             background: #1e293b;
             border-radius: 10px;
             cursor: pointer;
@@ -242,6 +241,7 @@
             border-radius: 10px;
             position: absolute;
             top: 0; left: 0;
+            transition: width 0.1s linear;
         }
 
         .time-meta {
@@ -259,50 +259,39 @@
             gap: 10px;
             width: 100%;
             margin-top: 15px;
-            padding: 16px;
+            padding: 14px;
             background: rgba(255,255,255,0.02);
             color: #cbd5e1;
             text-decoration: none;
             border-radius: var(--radius-md);
-            font-weight: 600;
+            font-weight: 500;
             font-size: 0.9rem;
             transition: var(--transition);
             border: 1px solid var(--border);
         }
 
         .lock-btn:hover {
-            background: var(--text-main);
+            background: #fff;
             color: var(--bg-body);
-            border-color: var(--text-main);
+            border-color: #fff;
         }
 
-        /* --- CONTENEDOR ADQUISICIÓN VIP GLOW --- */
+        /* --- VIP GLOW CONSOLIDADO --- */
         .premium {
-            background: radial-gradient(circle at top left, #161233, #070a13);
-            border: 1px solid #3b0764;
-            border-radius: 32px;
-            padding: 70px 50px;
+            background: radial-gradient(circle at top left, #120e29, #05070f);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 28px;
+            padding: 60px 40px;
             text-align: center;
-            max-width: 750px;
+            max-width: 700px;
             margin: 0 auto;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
             position: relative;
-        }
-
-        .premium::after {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            background: linear-gradient(135deg, var(--primary), transparent, var(--accent));
-            border-radius: 32px;
-            z-index: -1;
-            opacity: 0.3;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         .premium h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: #38bdf8;
-            letter-spacing: -0.5px;
             font-weight: 700;
         }
 
@@ -312,58 +301,52 @@
         }
 
         .precio {
-            font-size: 5rem;
+            font-size: 4.5rem;
             font-weight: 800;
             color: var(--success);
-            margin: 20px 0;
+            margin: 15px 0;
             line-height: 1;
-            text-shadow: 0 0 25px rgba(34, 197, 94, 0.25);
+            text-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
         }
 
         .precio span {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #64748b;
             font-weight: 400;
             display: block;
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         .qr {
-            width: 230px;
+            width: 200px;
             max-width: 100%;
             background: white;
-            padding: 16px;
-            border-radius: 24px;
-            margin: 35px auto;
+            padding: 12px;
+            border-radius: 16px;
+            margin: 30px auto;
             display: block;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            transition: var(--transition);
-        }
-
-        .qr:hover {
-            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
         }
 
         .steps {
             text-align: left;
-            max-width: 440px;
-            margin: 35px auto;
+            max-width: 420px;
+            margin: 30px auto;
             color: #cbd5e1;
         }
 
         .steps li {
-            margin-bottom: 18px;
+            margin-bottom: 14px;
             list-style: none;
             display: flex;
             align-items: flex-start;
-            gap: 14px;
-            font-size: 1rem;
+            gap: 12px;
+            font-size: 0.95rem;
         }
 
         .steps li i {
             color: var(--success);
             margin-top: 4px;
-            font-size: 1.1rem;
         }
 
         .whatsapp-btn {
@@ -372,98 +355,118 @@
             justify-content: center;
             gap: 12px;
             background: #25D366;
-            padding: 18px 45px;
+            padding: 16px 40px;
             color: white;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             border-radius: 50px;
-            margin-top: 15px;
+            margin-top: 10px;
             transition: var(--transition);
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
-            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
         }
 
         .whatsapp-btn:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
             background: #1ea952;
-            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
         }
 
-        /* --- PREGUNTAS FRECUENTES (FAQS) --- */
+        /* --- FAQS DINÁMICAS (ACORDEÓN) --- */
+        .faq-container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
         .faq {
             background: var(--bg-card);
-            padding: 30px 35px;
-            border-radius: var(--radius-lg);
-            margin-bottom: 25px;
+            border-radius: var(--radius-md);
+            margin-bottom: 15px;
             border: 1px solid var(--border);
-            border-left: 4px solid var(--primary);
+            overflow: hidden;
             transition: var(--transition);
         }
 
-        .faq:hover {
-            border-left-color: var(--accent);
-            transform: translateX(6px);
-        }
-
-        .faq strong {
+        .faq-trigger {
+            width: 100%;
+            background: transparent;
+            border: none;
             color: #f8fafc;
-            font-size: 1.2rem;
-            display: block;
-            margin-bottom: 10px;
+            padding: 20px 25px;
+            text-align: left;
+            font-size: 1.1rem;
             font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .faq p {
+        .faq-trigger i {
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            padding: 0 25px;
             color: #94a3b8;
             font-size: 0.95rem;
             line-height: 1.7;
         }
 
-        /* --- FOOTER & FLOTANTES --- */
+        /* Clases activas para JS */
+        .faq.active {
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+        .faq.active .faq-trigger i {
+            transform: rotate(180deg);
+        }
+        .faq.active .faq-content {
+            padding-bottom: 20px;
+        }
+
+        /* --- FOOTER Y FLOTANTE --- */
         footer {
-            background: #03050a;
+            background: #020306;
             text-align: center;
-            padding: 50px 20px;
-            margin-top: 100px;
+            padding: 40px 20px;
+            margin-top: 8px;
             color: #475569;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border-top: 1px solid var(--border);
         }
 
         .whatsapp-float {
             position: fixed;
-            right: 30px;
-            bottom: 30px;
-            width: 65px;
-            height: 65px;
+            right: 25px;
+            bottom: 25px;
+            width: 60px;
+            height: 60px;
             background: #25D366;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 35px;
+            font-size: 30px;
             text-decoration: none;
             color: white;
-            box-shadow: 0 15px 35px rgba(0,0,0,.5);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
             z-index: 999;
             transition: var(--transition);
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1) rotate(8deg);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(25px); }
-            to { opacity: 1; transform: translateY(0); }
+            transform: scale(1.1) rotate(5deg);
         }
 
         @media(max-width:768px){
-            header h1 { font-size: 2.8rem; }
-            .section-title h2 { font-size: 2rem; }
-            .premium { padding: 50px 20px; }
-            .premium h2 { font-size: 1.9rem; }
-            .precio { font-size: 3.8rem; }
+            header h1 { font-size: 2.6rem; }
+            .section-title h2 { font-size: 1.8rem; }
+            .premium { padding: 40px 20px; }
+            .premium h2 { font-size: 1.7rem; }
+            .precio { font-size: 3.5rem; }
             .whatsapp-btn { width: 100%; }
         }
     </style>
@@ -472,17 +475,16 @@
 <body>
 
 <header>
-    <h1><i class="fa-solid fa-cloud-music"></i> FULL TONOS PREMIUM</h1>
-    <p>Escucha las muestras gratis en línea. Desbloquea el acceso completo para descargar todo el catálogo original en Alta Definición para tu celular.</p>
-    <a href="#tonos" class="btn"><i class="fa-solid fa-waveform-lines"></i> Explorar Catálogo</a>
+    <h1><i class="fa-solid fa-music"></i> FULL TONOS PREMIUM</h1>
+    <p>Escucha las muestras gratis online. Desbloquea el acceso completo para descargar todo el catálogo original en Alta Definición para tu celular.</p>
+    <a href="#tonos" class="btn"><i class="fa-solid fa-icons"></i> Explorar Catálogo</a>
 </header>
 
 <main>
-    <!-- SECCIÓN DE TONOS (MUESTRAS) -->
     <section id="tonos">
         <div class="section-title">
             <h2>🔥 Catálogo de Muestras</h2>
-            <p>Los audios de abajo son demostraciones cortas de 15 segundos. El pack completo incluye canciones completas y limpias.</p>
+            <p>Los audios de abajo son demostraciones cortas de 15 segundos. El pack completo incluye versiones limpias y completas.</p>
         </div>
 
         <div class="grid">
@@ -492,11 +494,10 @@
                 <h3>Tono Premium 01</h3>
                 <div class="track-info">
                     <span><i class="fa-solid fa-clock"></i> 2:15 min</span>
-                    <span><i class="fa-solid fa-waveform"></i> 320 kbps</span>
+                    <span><i class="fa-solid fa-wave-square"></i> 320 kbps</span>
                 </div>
                 
-                <!-- Reproductor Nativo Oculto / Controlado por UI Custom -->
-                <audio id="audio1" preload="none" ontimeupdate="updateProgress('audio1', 'progress1', 'time1')">
+                <audio id="audio1" preload="none">
                     <source src="audio/tono1.mp3" type="audio/mpeg">
                 </audio>
                 
@@ -512,8 +513,7 @@
                         </div>
                     </div>
                 </div>
-
-                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-unlock-keyhole"></i> Desbloquear Tono</a>
+                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-unlock"></i> Desbloquear Tono</a>
             </div>
 
             <!-- Tono 2 -->
@@ -522,10 +522,10 @@
                 <h3>Tono Premium 02</h3>
                 <div class="track-info">
                     <span><i class="fa-solid fa-clock"></i> 1:58 min</span>
-                    <span><i class="fa-solid fa-waveform"></i> 320 kbps</span>
+                    <span><i class="fa-solid fa-wave-square"></i> 320 kbps</span>
                 </div>
                 
-                <audio id="audio2" preload="none" ontimeupdate="updateProgress('audio2', 'progress2', 'time2')">
+                <audio id="audio2" preload="none">
                     <source src="audio/tono2.mp3" type="audio/mpeg">
                 </audio>
                 
@@ -541,8 +541,7 @@
                         </div>
                     </div>
                 </div>
-
-                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-unlock-keyhole"></i> Desbloquear Tono</a>
+                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-unlock"></i> Desbloquear Tono</a>
             </div>
 
             <!-- Tono 3 -->
@@ -551,10 +550,10 @@
                 <h3>Tono Premium 03</h3>
                 <div class="track-info">
                     <span><i class="fa-solid fa-clock"></i> 2:40 min</span>
-                    <span><i class="fa-solid fa-waveform"></i> 320 kbps</span>
+                    <span><i class="fa-solid fa-wave-square"></i> 320 kbps</span>
                 </div>
                 
-                <audio id="audio3" preload="none" ontimeupdate="updateProgress('audio3', 'progress3', 'time3')">
+                <audio id="audio3" preload="none">
                     <source src="audio/tono3.mp3" type="audio/mpeg">
                 </audio>
                 
@@ -570,8 +569,7 @@
                         </div>
                     </div>
                 </div>
-
-                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-unlock-keyhole"></i> Desbloquear Tono</a>
+                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-unlock"></i> Desbloquear Tono</a>
             </div>
 
             <!-- Tono 4 -->
@@ -580,10 +578,10 @@
                 <h3>Notificación Especial</h3>
                 <div class="track-info">
                     <span><i class="fa-solid fa-clock"></i> 0:08 seg</span>
-                    <span><i class="fa-solid fa-waveform"></i> Ultra HQ</span>
+                    <span><i class="fa-solid fa-wave-square"></i> Ultra HQ</span>
                 </div>
                 
-                <audio id="audio4" preload="none" ontimeupdate="updateProgress('audio4', 'progress4', 'time4')">
+                <audio id="audio4" preload="none">
                     <source src="audio/notificacion.mp3" type="audio/mpeg">
                 </audio>
                 
@@ -599,17 +597,15 @@
                         </div>
                     </div>
                 </div>
-
-                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-unlock-keyhole"></i> Desbloquear Tono</a>
+                <a href="#descarga-vip" class="lock-btn"><i class="fa-solid fa-unlock"></i> Desbloquear Tono</a>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN DE ADQUISICIÓN POR QR -->
     <section id="descarga-vip">
         <div class="premium">
-            <h2><i class="fa-solid fa-star-exclamation" style="color: var(--accent);"></i> ACCESO ILIMITADO VIP</h2>
-            <p>No compres uno por uno. Con un único pago obtienes un **enlace privado directo (Google Drive/Mega)** para descargar todos los tonos de la web en formato original para Android o iPhone.</p>
+            <h2><i class="fa-solid fa-star" style="color: var(--accent);"></i> ACCESO ILIMITADO VIP</h2>
+            <p>Con un único pago obtienes un <strong>enlace privado directo (Google Drive/Mega)</strong> para descargar todos los tonos de la web de manera instantánea.</p>
             
             <div class="precio">
                 S/ 4
@@ -622,7 +618,7 @@
                 <li><i class="fa-solid fa-circle-check"></i> Escanea el código QR y realiza el pago de S/ 4.</li>
                 <li><i class="fa-solid fa-circle-check"></i> Toma una captura de pantalla del comprobante nítido.</li>
                 <li><i class="fa-solid fa-circle-check"></i> Haz clic abajo para enviárnosla por WhatsApp.</li>
-                <li><i class="fa-solid fa-circle-check"></i> Al instante recibirás tu enlace de descarga seguro con todos los archivos.</li>
+                <li><i class="fa-solid fa-circle-check"></i> Recibirás tu enlace de descarga seguro inmediatamente.</li>
             </ul>
 
             <a class="whatsapp-btn" 
@@ -633,48 +629,60 @@
         </div>
     </section>
 
-    <!-- PREGUNTAS FRECUENTES -->
     <section id="soporte">
         <div class="section-title">
             <h2>❓ Dudas Frecuentes</h2>
         </div>
 
-        <div class="grid" style="grid-template-columns: 1fr;">
+        <div class="faq-container">
             <div class="faq">
-                <strong>¿El enlace incluye todos los tonos escuchados arriba?</strong>
-                <p>Sí, absolutamente todos. Y lo mejor de todo es que se descargan completos, sin cortes promocionales, sin publicidad de fondo y en la máxima tasa de bits (320kbps HD).</p>
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    ¿El enlace incluye todos los tonos escuchados arriba?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-content">
+                    <p>Sí, absolutamente todos. Y lo mejor de todo es que se descargan completos, sin cortes promocionales, sin publicidad de fondo y en la máxima tasa de bits (320kbps HD).</p>
+                </div>
             </div>
 
             <div class="faq">
-                <strong>¿Cómo configuro el archivo descargado como mi tono de llamada?</strong>
-                <p>Es muy sencillo. En Android solo debes mover el archivo descargado a la carpeta "Ringtones" desde tus archivos. En iPhone te adjuntamos una guía rápida de 3 pasos usando GarageBand o iTunes en formato .m4r.</p>
+                <button class="faq-trigger" onclick="toggleFaq(this)">
+                    ¿Cómo configuro el archivo descargado en mi celular?
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-content">
+                    <p>Es muy sencillo. En Android solo debes mover el archivo descargado a la carpeta "Ringtones" desde tu administrador de archivos. En iPhone te adjuntamos una guía rápida de 3 pasos usando GarageBand o iTunes.</p>
+                </div>
             </div>
         </div>
     </section>
 </main>
 
-<!-- Botón Flotante de Soporte Directo -->
 <a class="whatsapp-float" href="https://wa.me/51999999999?text=Hola,%20tengo%20una%20duda%20antes%20de%20adquirir%20el%20pack%20de%20tonos." target="_blank">
     <i class="fa-brands fa-whatsapp"></i>
 </a>
 
 <footer>
     © 2026 FULL TONOS PREMIUM - Todos los derechos reservados.<br>
-    Las marcas Android y iPhone pertenecen a sus respectivos desarrolladores.
+    Las marcas Android y iPhone pertenecen a sus respectivos dueños.
 </footer>
 
 <script>
-    // --- LÓGICA DEL REPRODUCTOR PREMIUM INTELLIGENT ---
+    // --- CONTROLADOR DE AUDIO ---
     let currentAudio = null;
     let currentButton = null;
+    let progressInterval = null;
 
     function togglePlay(audioId, btn) {
         const audio = document.getElementById(audioId);
+        const card = btn.closest('.card');
+        const progressBar = card.querySelector('.progress-bar');
+        const timeDisplay = card.querySelector('.time-meta span:first-child');
         
-        // Si hay otro audio reproduciéndose lo pausamos inmediatamente
         if (currentAudio && currentAudio !== audio) {
             currentAudio.pause();
-            currentButton.innerHTML = '<i class="fa-solid fa-play"></i>';
+            if (currentButton) currentButton.innerHTML = '<i class="fa-solid fa-play"></i>';
+            clearInterval(progressInterval);
         }
 
         if (audio.paused) {
@@ -682,32 +690,29 @@
             btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
             currentAudio = audio;
             currentButton = btn;
+
+            progressInterval = setInterval(() => {
+                if (audio.duration) {
+                    const percentage = (audio.currentTime / audio.duration) * 100;
+                    progressBar.style.width = percentage + '%';
+                    
+                    let mins = Math.floor(audio.currentTime / 60);
+                    let secs = Math.floor(audio.currentTime % 60);
+                    timeDisplay.innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+                }
+            }, 100);
         } else {
             audio.pause();
             btn.innerHTML = '<i class="fa-solid fa-play"></i>';
+            clearInterval(progressInterval);
         }
 
-        // Manejar reseteo automático cuando termine la muestra
         audio.onended = function() {
             btn.innerHTML = '<i class="fa-solid fa-play"></i>';
+            progressBar.style.width = '0%';
+            timeDisplay.innerText = '0:00';
+            clearInterval(progressInterval);
         };
-    }
-
-    function updateProgress(audioId, progressId, timeId) {
-        const audio = document.getElementById(audioId);
-        const progressBar = document.getElementById(progressId);
-        const timeDisplay = document.getElementById(timeId);
-
-        if(audio.duration) {
-            const percentage = (audio.currentTime / audio.duration) * 100;
-            progressBar.style.width = percentage + '%';
-            
-            // Renderizado estricto del contador de tiempo transcurrido
-            let mins = Math.floor(audio.currentTime / 60);
-            let secs = Math.floor(audio.currentTime % 60);
-            if (secs < 10) secs = '0' + secs;
-            timeDisplay.innerText = mins + ':' + secs;
-        }
     }
 
     function seekAudio(audioId, event) {
@@ -718,8 +723,30 @@
         const width = rect.width;
         const percentage = x / width;
         
-        if(audio.duration) {
-            audio.currentTime = percentage * audio.duration;
+        if (!audio.paused || audio.currentTime > 0) {
+            audio.currentTime = percentage * (audio.duration || 15);
+            const progressBar = container.querySelector('.progress-bar');
+            progressBar.style.width = (percentage * 100) + '%';
+        }
+    }
+
+    // --- ACORDEÓN DE PREGUNTAS FRECUENTES ---
+    function toggleFaq(button) {
+        const faqElement = button.parentElement;
+        const content = faqElement.querySelector('.faq-content');
+        
+        if (faqElement.classList.contains('active')) {
+            faqElement.classList.remove('active');
+            content.style.maxHeight = null;
+        } else {
+            // Cerrar otros si están abiertos
+            document.querySelectorAll('.faq').forEach(el => {
+                el.classList.remove('active');
+                el.querySelector('.faq-content').style.maxHeight = null;
+            });
+            
+            faqElement.classList.add('active');
+            content.style.maxHeight = content.scrollHeight + "px";
         }
     }
 </script>
