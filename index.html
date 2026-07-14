@@ -54,10 +54,61 @@
             pointer-events: none;
         }
 
+        /* --- SPLASH SCREEN --- */
+        #splash-screen {
+            position: fixed;
+            inset: 0;
+            background: #03050a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .splash-content {
+            text-align: center;
+            animation: pulseLogo 2s infinite ease-in-out;
+        }
+
+        .splash-logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .splash-loader {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(6, 182, 212, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes pulseLogo {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0)); }
+            50% { transform: scale(1.03); filter: drop-shadow(0 0 30px rgba(6, 182, 212, 0.4)); }
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* --- HEADER --- */
         header {
-            padding: 160px 20px 100px 20px;
+            padding: 120px 20px 100px 20px;
             text-align: center;
             position: relative;
+        }
+
+        .brand-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.2));
         }
 
         header h1 {
@@ -99,6 +150,7 @@
             filter: brightness(1.1);
         }
 
+        /* --- SECCIONES --- */
         section {
             padding: 80px 20px;
             max-width: 1200px;
@@ -128,6 +180,7 @@
             gap: 30px;
         }
 
+        /* --- TARJETAS --- */
         .card {
             background: var(--bg-card);
             backdrop-filter: blur(12px);
@@ -181,6 +234,7 @@
             margin-right: 4px;
         }
 
+        /* --- REPRODUCTOR --- */
         .custom-player {
             background: var(--bg-input);
             padding: 12px 16px;
@@ -271,6 +325,7 @@
             border-color: #fff;
         }
 
+        /* --- SECCIÓN ADQUISICIÓN VIP --- */
         .premium {
             background: radial-gradient(circle at top left, #120e29, #05070f);
             border: 1px solid rgba(168, 85, 247, 0.3);
@@ -365,6 +420,7 @@
             box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
         }
 
+        /* --- PREGUNTAS FRECUENTES --- */
         .faq-container {
             max-width: 750px;
             margin: 0 auto;
@@ -465,8 +521,17 @@
 
 <body>
 
+<!-- SPLASH SCREEN DE BIENVENIDA -->
+<div id="splash-screen">
+    <div class="splash-content">
+        <img src="logo.png" class="splash-logo" alt="Logo Full Tonos">
+        <div class="splash-loader"></div>
+    </div>
+</div>
+
 <header>
-    <h1><i class="fa-solid fa-music"></i> FULL TONOS PREMIUM</h1>
+    <img src="logo.png" class="brand-logo" alt="Logo Full Tonos">
+    <h1>FULL TONOS PREMIUM</h1>
     <p>Escucha las muestras gratis online. Desbloquea el acceso completo para descargar todo el catálogo original en Alta Definición para tu celular.</p>
     <a href="#tonos" class="btn"><i class="fa-solid fa-icons"></i> Explorar Catálogo</a>
 </header>
@@ -478,7 +543,6 @@
             <p>Los audios de abajo son demostraciones cortas de 15 segundos. El pack completo incluye versiones limpias y completas.</p>
         </div>
 
-        <!-- Contenedor dinámico donde se inyectarán las 15 tarjetas -->
         <div class="grid" id="tonos-grid"></div>
     </section>
 
@@ -548,7 +612,16 @@
 </footer>
 
 <script>
-    // --- RENDERIZADO PRO DE LAS 15 TARJETAS DE TONOS ---
+    // --- LÓGICA DEL SPLASH SCREEN ---
+    window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            const splash = document.getElementById('splash-screen');
+            splash.style.opacity = '0';
+            splash.style.visibility = 'hidden';
+        }, 2000); // Se desvanece tras 2 segundos
+    });
+
+    // --- RENDERIZADO DE LAS 15 TARJETAS DE TONOS ---
     const ringtonesData = [
         { id: 1, title: 'Tono Premium 01', file: 'tono1.mp3', duration: '2:15 min', quality: '320 kbps' },
         { id: 2, title: 'Tono Premium 02', file: 'tono2.mp3', duration: '1:58 min', quality: '320 kbps' },
